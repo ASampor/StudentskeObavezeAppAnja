@@ -8,6 +8,7 @@
             SelectedTabColor="White"
             UnselectedTabColor="LightGray">
 
+    
     <views:IspitiPage Title="Ispiti" />
     <views:BeleskePage Title="Beleške" />
 </TabbedPage>
