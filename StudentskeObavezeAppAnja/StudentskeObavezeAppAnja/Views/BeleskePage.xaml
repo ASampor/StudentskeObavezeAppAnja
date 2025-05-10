@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentskeObavezeAppAnja.Views.BeleskePage"
+             Title="Beleške"
+             BackgroundColor="White">
+    <StackLayout Padding="20" Spacing="15">
+        <Label Text="Beleške" FontSize="24" FontAttributes="Bold"
+           TextColor="HotPink" HorizontalOptions="Center" />
+
+        <CollectionView x:Name="beleškeList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Spacing="2">
+                        <Frame BackgroundColor="#fce4ec" CornerRadius="10" Padding="10" Margin="0,5">
+                            <StackLayout>
+                                <Label Text="{Binding Tekst}" FontSize="16" TextColor="Black" />
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="10">
+                                    <Button Text="Izmeni" BackgroundColor="HotPink" TextColor="White"
+                                        FontSize="12" Padding="5" HeightRequest="30" WidthRequest="70"
+                                        Clicked="OnUrediClicked" BindingContext="{Binding .}" />
+                                    <Button Text="Obriši" BackgroundColor="HotPink" TextColor="White"
+                                        FontSize="12" Padding="5" HeightRequest="30" WidthRequest="70"
+                                        Clicked="OnObrisiClicked" BindingContext="{Binding .}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Label Text="{Binding Datum, StringFormat='{0:dd.MM.yyyy. HH:mm}'}"
+                           FontSize="12" TextColor="DarkGray"
+                           HorizontalOptions="End" Margin="0,0,5,10" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <StackLayout x:Name="unosStack" IsVisible="False">
+            <Editor x:Name="noviUnosEditor" Placeholder="Unesi novu belešku..." HeightRequest="100"/>
+            <Button Text="Sačuvaj" BackgroundColor="HotPink" TextColor="White" Clicked="OnSacuvajNovuClicked"/>
+        </StackLayout>
+
+        <Button x:Name="btnDodaj" Text="Dodaj belešku" BackgroundColor="HotPink"
+            TextColor="White" Clicked="OnDodajClicked"/>
+    </StackLayout>
+</ContentPage>

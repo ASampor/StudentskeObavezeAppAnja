@@ -14,6 +14,9 @@ namespace StudentskeObavezeAppAnja.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            Xamarin.Forms.Forms.SetFlags("Shell_UWP_Experimental"); // Ako koristiš Shell
+
+            Window.SetStatusBarColor(Android.Graphics.Color.Gray);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
