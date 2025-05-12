@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentskeObavezeAppAnja.Views.IspitiPage" 
              Title="Ispiti">
-    <StackLayout Padding="20" Spacing="15">
-    <Label Text="Ispiti" FontAttributes="Bold" FontSize="24" TextColor="HotPink" HorizontalOptions="Center" />
+    <StackLayout Padding="20" Spacing="15" BackgroundColor="{DynamicResource BackgroundColor}">
+        <Label Text="Ispiti" FontAttributes="Bold" FontSize="24" TextColor="{DynamicResource LabelTextColor}" HorizontalOptions="Center" />
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+            <Label Text="Tamni režim" VerticalOptions="Center" TextColor="{DynamicResource LabelTextColor}"/>
+            <Switch Toggled="OnDarkModeToggled" />
+        </StackLayout>
 
-    <CollectionView x:Name="ispitiListView" SelectionMode="None">
+        <CollectionView x:Name="ispitiListView" SelectionMode="None">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame BackgroundColor="#fce4ec" Padding="15" CornerRadius="20" Margin="0,10" HasShadow="True">

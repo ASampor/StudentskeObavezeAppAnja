@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using StudentskeObavezeAppAnja.Data;
 using System.IO;
+using StudentskeObavezeAppAnja.Styles;
 
 
 namespace StudentskeObavezeAppAnja
@@ -27,7 +28,23 @@ namespace StudentskeObavezeAppAnja
         {
             InitializeComponent();
 
+            PostaviTemu(OSAppTheme.Light);
+
             MainPage = new MainPage();
+        }
+
+        public void PostaviTemu(OSAppTheme tema)
+        {
+            ResourceDictionary novaTema;
+
+            if (tema == OSAppTheme.Dark)
+                novaTema = new DarkTheme(); // ovo traži da si u DarkTheme.xaml stavila `x:Class="StudentskeObavezeAppAnja.Styles.DarkTheme"`
+            else
+                novaTema = new LightTheme();
+
+            Application.Current.Resources = novaTema;
+
+            Application.Current.UserAppTheme = tema;
         }
 
         protected override void OnStart()

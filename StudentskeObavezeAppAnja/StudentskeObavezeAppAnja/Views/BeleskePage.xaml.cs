@@ -116,5 +116,11 @@ namespace StudentskeObavezeAppAnja.Views
                 }
             }
         }
+
+        private void OnDarkModeToggled(object sender, ToggledEventArgs e)
+        {
+            var novaTema = e.Value ? OSAppTheme.Dark : OSAppTheme.Light;
+            ((App)Application.Current).PostaviTemu(novaTema);
+        }
     }
 }

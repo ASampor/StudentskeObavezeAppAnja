@@ -6,6 +6,9 @@ using StudentskeObavezeAppAnja.Models;
 using StudentskeObavezeAppAnja.Data;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using Plugin.LocalNotification;
+using Plugin.LocalNotification.AndroidOption;
+
 
 
 
@@ -70,14 +73,21 @@ namespace StudentskeObavezeAppAnja.Views
 
         private async Task ZakaziAlarm(Ispit ispit)
         {
-            var vremeNotifikacije = ispit.DatumIspita.AddDays(-3);
-            if (vremeNotifikacije > DateTime.Now)
+            var notification = new NotificationRequest
             {
-                // Simulacija notifikacije
-                await Task.Delay(500);
-                await DisplayAlert("Podsetnik", $"Ispit iz {ispit.Predmet} je za 3 dana ({ispit.DatumIspita:dd.MM.yyyy. HH:mm})", "OK");
-            }
+                NotificationId = ispit.Id,  
+                Title = "Podsetnik za ispit",
+                Description = $"Ispit: {ispit.Predmet} - Datum: {ispit.DatumIspita.ToString("dd.MM.yyyy HH:mm")}",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = ispit.DatumIspita.AddDays(-3), // Alarm 3 dana pre ispita
+                    NotifyRepeatInterval = TimeSpan.Zero // Bez ponavljanja
+                }
+            };
+
+            NotificationCenter.Current.Show(notification);
         }
+
 
         private void OnDodajIspitClicked(object sender, EventArgs e)
         {
@@ -151,5 +161,12 @@ namespace StudentskeObavezeAppAnja.Views
                 btnDodajIspit.IsVisible = false;
             }
         }
+        private void OnDarkModeToggled(object sender, ToggledEventArgs e)
+        {
+            var novaTema = e.Value ? OSAppTheme.Dark : OSAppTheme.Light;
+            ((App)Application.Current).PostaviTemu(novaTema);
+        }
+
+
     }
 }

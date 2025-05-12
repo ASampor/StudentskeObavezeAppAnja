@@ -1,9 +1,10 @@
-﻿using System;
-
+﻿using Plugin.LocalNotification;
+using System;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+
 
 namespace StudentskeObavezeAppAnja.Droid
 {
@@ -12,9 +13,11 @@ namespace StudentskeObavezeAppAnja.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            NotificationCenter.CreateNotificationChannel();
+
             base.OnCreate(savedInstanceState);
 
-            Xamarin.Forms.Forms.SetFlags("Shell_UWP_Experimental"); // Ako koristiš Shell
+            Xamarin.Forms.Forms.SetFlags("Shell_UWP_Experimental"); 
 
             Window.SetStatusBarColor(Android.Graphics.Color.Gray);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

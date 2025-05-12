@@ -2,12 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentskeObavezeAppAnja.Views.BeleskePage"
-             Title="Beleške"
-             BackgroundColor="White">
-    <StackLayout Padding="20" Spacing="15">
-        <Label Text="Beleške" FontSize="24" FontAttributes="Bold"
-           TextColor="HotPink" HorizontalOptions="Center" />
-
+             Title="Beleške">
+    <StackLayout Padding="20" Spacing="15" BackgroundColor="{DynamicResource BackgroundColor}">
+        <Label Text="Beleške" FontAttributes="Bold" FontSize="24" TextColor="{DynamicResource LabelTextColor}" HorizontalOptions="Center" />
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+            <Label Text="Tamni režim" VerticalOptions="Center" TextColor="{DynamicResource LabelTextColor}"/>
+            <Switch Toggled="OnDarkModeToggled" />
+        </StackLayout>
+        
         <CollectionView x:Name="beleškeList">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
