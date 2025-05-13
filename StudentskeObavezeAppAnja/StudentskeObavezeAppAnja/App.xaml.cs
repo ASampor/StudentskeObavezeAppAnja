@@ -30,6 +30,9 @@ namespace StudentskeObavezeAppAnja
 
             PostaviTemu(OSAppTheme.Light);
 
+            Device.SetFlags(new[] { "Visual_Experimental" });
+
+
             MainPage = new MainPage();
         }
 
@@ -38,7 +41,7 @@ namespace StudentskeObavezeAppAnja
             ResourceDictionary novaTema;
 
             if (tema == OSAppTheme.Dark)
-                novaTema = new DarkTheme(); // ovo traži da si u DarkTheme.xaml stavila `x:Class="StudentskeObavezeAppAnja.Styles.DarkTheme"`
+                novaTema = new DarkTheme(); 
             else
                 novaTema = new LightTheme();
 

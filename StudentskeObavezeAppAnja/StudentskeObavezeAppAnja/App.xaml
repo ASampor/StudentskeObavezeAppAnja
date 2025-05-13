@@ -4,7 +4,11 @@
              x:Class="StudentskeObavezeAppAnja.App">
 
     <Application.Resources>
-        
+        <Style TargetType="Entry">
+            <Setter Property="Visual" Value="Material" />
+            <Setter Property="TextColor" Value="HotPink" />
+        </Style>
     </Application.Resources>
+
 
 </Application>

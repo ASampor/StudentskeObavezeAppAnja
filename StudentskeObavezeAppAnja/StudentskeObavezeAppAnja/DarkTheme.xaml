@@ -2,6 +2,6 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="StudentskeObavezeAppAnja.Styles.DarkTheme">
-    <Color x:Key="BackgroundColor">#121212</Color>
+    <Color x:Key="BackgroundColor">Black</Color>
     <Color x:Key="LabelTextColor">White</Color>
 </ResourceDictionary>

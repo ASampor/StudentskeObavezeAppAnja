@@ -38,7 +38,13 @@
         </CollectionView>
 
         <StackLayout x:Name="unosStack" IsVisible="False">
-            <Editor x:Name="noviUnosEditor" Placeholder="Unesi novu belešku..." HeightRequest="100"/>
+            <Editor
+                x:Name="noviUnosEditor"
+                Placeholder="Unesi novu belešku..."
+                HeightRequest="100"
+                Visual="Material"
+                TextColor="HotPink"
+                PlaceholderColor="HotPink" />   
             <Button Text="Sačuvaj" BackgroundColor="HotPink" TextColor="White" Clicked="OnSacuvajNovuClicked"/>
         </StackLayout>
 

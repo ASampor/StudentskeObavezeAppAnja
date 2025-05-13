@@ -167,6 +167,18 @@ namespace StudentskeObavezeAppAnja.Views
             ((App)Application.Current).PostaviTemu(novaTema);
         }
 
+        private void Entry_Focused(object sender, FocusEventArgs e)
+        {
+            var entry = sender as Entry;
+            entry.TextColor = Color.HotPink;
+        }
+
+        private void Entry_Unfocused(object sender, FocusEventArgs e)
+        {
+            var entry = sender as Entry;
+            entry.TextColor = Color.Black;
+        }
+
 
     }
 }

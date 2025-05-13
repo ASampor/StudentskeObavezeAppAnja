@@ -53,11 +53,31 @@
 
     <Button x:Name="btnDodajIspit" Text="Dodaj ispit" Clicked="OnDodajIspitClicked" BackgroundColor="HotPink" TextColor="White" />
 
-    <StackLayout x:Name="addIspitForm" IsVisible="False">
-        <Entry x:Name="entryPredmet" Placeholder="Unesi predmet" />
-        <DatePicker x:Name="datePickerIspit" />
-        <TimePicker x:Name="timePickerIspit" Time="09:00:00" />
-        <Button Text="Sačuvaj" Clicked="OnSaveIspitClicked" BackgroundColor="HotPink" TextColor="White" />
+        <StackLayout x:Name="addIspitForm" IsVisible="False">
+            <Entry 
+                x:Name="entryPredmet"
+                Placeholder="Unesi predmet"
+                Visual="Material"
+                TextColor="HotPink"
+                PlaceholderColor="HotPink"
+                Focused="Entry_Focused"
+                Unfocused="Entry_Unfocused"/>
+
+
+            <DatePicker x:Name="datePickerIspit" 
+                TextColor="HotPink" 
+                />
+
+            <TimePicker x:Name="timePickerIspit" 
+                Time="09:00:00" 
+                TextColor="HotPink" 
+                />
+
+            <Button Text="Sačuvaj" 
+            Clicked="OnSaveIspitClicked" 
+            BackgroundColor="HotPink" 
+            TextColor="White" />
+        </StackLayout>
+
     </StackLayout>
-</StackLayout>
 </ContentPage>
